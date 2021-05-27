@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "text_search_engine"
+version = "0.1.0"
+description = ""
+authors = ["Quastrado <Ataxyswriter@yandex.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.65.1"
+SQLAlchemy = "^1.4.15"
+psycopg2-binary = "^2.8.6"
+uvicorn = "^0.13.4"
+python-dotenv = "^0.17.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.812"
+sqlalchemy-stubs = "^0.4"
+flake8 = "^3.9.2"
+autoflake = "^1.4"
+isort = "^5.8.0"
+black = "^21.5b1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
