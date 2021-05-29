@@ -1,8 +1,10 @@
 from uuid import uuid4
+
 from sqlalchemy import Column, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 
-from .db import Base
+from .db.base import Base
+
 
 class Post(Base):
     __tablename__ = "posts"

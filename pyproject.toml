@@ -11,6 +11,8 @@ SQLAlchemy = "^1.4.15"
 psycopg2-binary = "^2.8.6"
 uvicorn = "^0.13.4"
 python-dotenv = "^0.17.1"
+alembic = "^1.6.5"
+inflect = "^5.3.0"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.812"

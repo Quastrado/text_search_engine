@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from starlette.status import HTTP_201_CREATED, HTTP_404_NOT_FOUND
 
 from . import actions, models, schemas
-from .db import SessionLocal
+from .db.session import SessionLocal
 
 
 app = FastAPI()

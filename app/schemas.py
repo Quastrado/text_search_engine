@@ -35,3 +35,7 @@ class Post(PostInDBBase):
 # Additional properties stored in DB
 class PostInDB(PostInDBBase):
     pass
+
+
+class HTTPError(BaseModel):
+    pass
