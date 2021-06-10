@@ -4,7 +4,6 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-import sqlalchemy
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -18,7 +17,8 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from app.db.base import Base 
+
+from app.db import Base
 from app import models
 target_metadata = Base.metadata
 
@@ -27,14 +27,15 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+
 def get_url():
     from app.config import settings
 
     user = settings.POSTGRES_USER
     password = settings.POSTGRES_PASSWORD
-    server = settings.POSTGRES_SERVER
+    server = settings.INTERNAL_POSTGRES_SERVER
     db = settings.POSTGRES_DB
-    return f'postgresql://{user}:{password}@{server}/{db}'
+    return f"postgresql://{user}:{password}@{server}/{db}"
 
 
 def run_migrations_offline():
@@ -51,7 +52,7 @@ def run_migrations_offline():
     """
     url = get_url()
     context.configure(
-        url=get_url(),
+        url=url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
