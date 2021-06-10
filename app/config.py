@@ -4,7 +4,8 @@ from pydantic import BaseSettings, PostgresDsn, validator
 
 
 class Settings(BaseSettings):
-    POSTGRES_SERVER: str
+    INTERNAL_POSTGRES_SERVER: str
+    EXTERNAL_POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
@@ -19,13 +20,13 @@ class Settings(BaseSettings):
             scheme='postgresql',
             user=values.get('POSTGRES_USER'),
             password=values.get('POSTGRES_PASSWORD'),
-            host=values.get('POSTGRES_SERVER'),
+            host=values.get('INTERNAL_POSTGRES_SERVER'),
             path=f'/{values.get("POSTGRES_DB") or ""}'
         )
 
     class Config:
         case_sensitive = True
-        # env_file = ".env"
+        env_file = ".env"
 
 
 settings = Settings()

@@ -21,7 +21,7 @@ class PostUpdate(PostBase):
 
 
 class PostInDBBase(PostBase):
-    id: Optional[UUID4] = None
+    id: Optional[int] = None
 
     class Config:
         orm_mode = True
