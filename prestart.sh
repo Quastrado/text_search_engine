@@ -2,6 +2,6 @@
 
 sleep 10;
 
-alembic upgrade head
+# alembic upgrade head
 
-#python insert_source.py
+python es_index_create.py
