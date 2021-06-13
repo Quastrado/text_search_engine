@@ -29,8 +29,8 @@ services:
             - "discovery.type=single-node"
         ports:
             - 9200:9200
-        # networks:
-        #     - logging
+        networks:
+            - logging
 
     server:
         build:
@@ -46,5 +46,5 @@ services:
 volumes:
     db-data:
 
-# networks: 
-#     logging:
+networks: 
+    logging:
